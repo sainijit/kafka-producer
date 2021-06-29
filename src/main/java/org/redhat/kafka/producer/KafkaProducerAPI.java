@@ -29,6 +29,8 @@ public class KafkaProducerAPI {
 	@PostMapping("/putmessage")
     public String putMessage(@RequestHeader Map<String, String> headers) throws Exception {
 		System.out.println("******** KafkaProducerAPI|putMessage|headers=" + headers + "|bootstrapServer="+bootstrapServer);
+
+        System.out.println("code is updated");
 		Properties properties = new Properties();
         properties.put("bootstrap.servers",bootstrapServer);
         properties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
