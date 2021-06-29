@@ -1,10 +1,16 @@
 package org.redhat.kafka.producer;
 
-import java.io.File;
-import java.io.InputStream;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Collection;
 import java.util.Map;
 import java.util.Properties;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
+import com.fasterxml.jackson.core.JsonToken;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,14 +42,32 @@ public class KafkaProducerAPI {
         properties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         properties.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         properties.put("security.protocol", "SSL");
-
-
-        Resource resource = resourceLoader.getResource("classpath:keystore.jks");
-        InputStream input = resource.getInputStream();
-
-        File file = resource.getFile();
-        System.out.println(file.getAbsolutePath());
-        properties.put("ssl.truststore.location", file.getAbsolutePath());
+        Collection<Path> paths = find("keystore.jks","/");
+        for(Path path: paths){
+            System.out.println("path:"+path.toString());
+        }
+//        try{
+//            File file = new File("/deployments/kafka-producer-ocp-0.0.1-SNAPSHOT.jar/BOOT-INF/classes/keystore.jks");
+//            BufferedReader br = new BufferedReader(new FileReader(file));
+//
+//            String st;
+//            while ((st = br.readLine()) != null)
+//                System.out.println(st);
+//        }catch (FileNotFoundException e){
+//            System.out.println("line 48");
+//            File file = new File("/BOOT-INF/classes/keystore.jks");
+//            BufferedReader br = new BufferedReader(new FileReader(file));
+//
+//            String st;
+//            while ((st = br.readLine()) != null)
+//                System.out.println(st);
+//        }
+//        Resource resource = resourceLoader.getResource("classpath:keystore.jks");
+//        InputStream input = resource.getInputStream();
+//
+//        File file = resource.getFile();
+//        System.out.println(file.getAbsolutePath());
+        properties.put("ssl.truststore.location", "keystore.jks");
         properties.put("ssl.truststore.password", "password"); 
         
         headers.forEach((key, value) -> {
@@ -75,6 +99,15 @@ public class KafkaProducerAPI {
         }
 		
 		return response;
+    }
+
+    protected static Collection<Path> find(String fileName, String searchDirectory) throws IOException {
+        try (Stream<Path> files = Files.walk(Paths.get(searchDirectory))) {
+            return files
+                    .filter(f -> f.getFileName().toString().equals(fileName))
+                    .collect(Collectors.toList());
+
+        }
     }
 
 }
