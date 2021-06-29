@@ -26,7 +26,7 @@ public class KafkaProducerAPI {
         properties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         properties.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         properties.put("security.protocol", "SSL");
-        properties.put("ssl.truststore", "þíþí   \u0002   \u0001   \u0002 \u0004root  \u0001zSÅO´ \u0005X.509  \u000310‚\u0003-0‚\u0002\u0015 \u0003\u0002\u0001\u0002\u0002\t êWƒµ‰ä‚L0\n" +
+        properties.put("ssl.truststore.certificates", "þíþí   \u0002   \u0001   \u0002 \u0004root  \u0001zSÅO´ \u0005X.509  \u000310‚\u0003-0‚\u0002\u0015 \u0003\u0002\u0001\u0002\u0002\t êWƒµ‰ä‚L0\n" +
                 "\u0006\t*†H†÷\n" +
                 "\u0001\u0001\u000B\u0005 0-1\u00130\u0011\u0006\u0003U\u0004\n" +
                 "\f\n" +
