@@ -39,55 +39,12 @@ public class KafkaProducerAPI {
     public String putMessage(@RequestHeader Map<String, String> headers) throws Exception {
 		System.out.println("******** KafkaProducerAPI|putMessage|headers=" + headers + "|bootstrapServer="+bootstrapServer);
 
-        System.out.println("code is updated");
+        System.out.println("code is updated again");
 		Properties properties = new Properties();
         properties.put("bootstrap.servers",bootstrapServer);
         properties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         properties.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-       // properties.put("security.protocol", "SSL");
-//        Collection<Path> paths = find("keystore.jks","/");
-//        for(Path path: paths){
-//            System.out.println("path:"+path.toString());
-//        }
-//        try{
-//            File file = new File("/deployments/kafka-producer-ocp-0.0.1-SNAPSHOT.jar/BOOT-INF/classes/keystore.jks");
-//            BufferedReader br = new BufferedReader(new FileReader(file));
-//
-//            String st;
-//            while ((st = br.readLine()) != null)
-//                System.out.println(st);
-//        }catch (FileNotFoundException e){
-//            System.out.println("line 48");
-//            File file = new File("/BOOT-INF/classes/keystore.jks");
-//            BufferedReader br = new BufferedReader(new FileReader(file));
-//
-//            String st;
-//            while ((st = br.readLine()) != null)
-//                System.out.println(st);
-//        }
-//        Resource resource = resourceLoader.getResource("classpath:keystore.jks");
-//        InputStream input = resource.getInputStream();
-//
-//        File file = resource.getFile();
-//        System.out.println(file.getAbsolutePath());
 
-//        ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-//        Resource[] resources = resolver.getResources("classpath*:keystore.jks");
-//
-//        if(resources != null){
-//            for(Resource r: resources) {
-//                if(r == null)
-//                    continue;
-//                if(r.getFilename().contains("store")){
-//                    InputStream inputStream = r.getInputStream();
-//                    File somethingFile = File.createTempFile(r.getFilename(), ".jks");
-//
-//                    System.out.println("File Path is " + somethingFile.getAbsolutePath());
-//                }
-//            }
-//        }
-        //properties.put("ssl.truststore.location", "/deployments/BOOT-INF/classes/keystore.jks");
-        //properties.put("ssl.truststore.password", "password");
         
         headers.forEach((key, value) -> {
         	System.out.println("key="+key+",value="+value);
