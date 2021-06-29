@@ -26,7 +26,7 @@ public class KafkaProducerAPI {
         properties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         properties.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         properties.put("security.protocol", "SSL");
-        properties.put("ssl.truststore.location", "/deployments/keystore.jks");
+        properties.put("ssl.truststore.location", "keystore.jks");
         properties.put("ssl.truststore.password", "password"); 
         
         headers.forEach((key, value) -> {
