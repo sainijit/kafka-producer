@@ -1,0 +1,8 @@
+com\intel\devclout\gen2\producer\Metadata.class
+com\intel\devclout\gen2\producer\Image.class
+com\intel\devclout\gen2\Application.class
+com\intel\devclout\gen2\controller\KafkaController.class
+com\intel\devclout\gen2\producer\KafkaProducerAPI.class
+com\intel\devclout\gen2\producer\Project.class
+com\intel\devclout\gen2\producer\Gen2DeploymentRequest.class
+com\intel\devclout\gen2\producer\Gen2DeploymentRequest$OpenShiftSSORequest.class

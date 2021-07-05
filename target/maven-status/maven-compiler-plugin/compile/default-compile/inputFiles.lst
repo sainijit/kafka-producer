@@ -1,2 +1,8 @@
-C:\developer\kafka\prod-consumers\amq-streams\kafka-producer-ocp\src\main\java\org\redhat\kafka\producer\KafkaProducerAPI.java
-C:\developer\kafka\prod-consumers\amq-streams\kafka-producer-ocp\src\main\java\org\redhat\kafka\Application.java
+C:\developer\kafka\prod-consumers\amq-streams\kafka-producer-ocp\src\main\java\com\intel\devclout\gen2\producer\KafkaProducerAPI.java
+C:\developer\kafka\prod-consumers\amq-streams\kafka-producer-ocp\src\main\java\com\intel\devclout\gen2\producer\TestMain.java
+C:\developer\kafka\prod-consumers\amq-streams\kafka-producer-ocp\src\main\java\com\intel\devclout\gen2\producer\Gen2DeploymentRequest.java
+C:\developer\kafka\prod-consumers\amq-streams\kafka-producer-ocp\src\main\java\com\intel\devclout\gen2\producer\Project.java
+C:\developer\kafka\prod-consumers\amq-streams\kafka-producer-ocp\src\main\java\com\intel\devclout\gen2\producer\Image.java
+C:\developer\kafka\prod-consumers\amq-streams\kafka-producer-ocp\src\main\java\com\intel\devclout\gen2\Application.java
+C:\developer\kafka\prod-consumers\amq-streams\kafka-producer-ocp\src\main\java\com\intel\devclout\gen2\controller\KafkaController.java
+C:\developer\kafka\prod-consumers\amq-streams\kafka-producer-ocp\src\main\java\com\intel\devclout\gen2\producer\Metadata.java

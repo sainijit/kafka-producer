@@ -3,9 +3,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    fabric8.io/git-commit: 9f23a04a1c3cfcb0a3a3638792137305b5ddd004
-    fabric8.io/git-branch: master
-    fabric8.io/git-url: https://github.com/rh-maggarwa/amq-streams.git
+    fabric8.io/git-commit: f7fb61983edd24fcfd323f936246ab544f693564
+    fabric8.io/git-branch: main
+    fabric8.io/git-url: https://github.com/sainijit/kafka-producer.git
   labels:
     app: kafka-producer-ocp
     provider: fabric8
@@ -23,9 +23,9 @@ spec:
   template:
     metadata:
       annotations:
-        fabric8.io/git-commit: 9f23a04a1c3cfcb0a3a3638792137305b5ddd004
-        fabric8.io/git-branch: master
-        fabric8.io/git-url: https://github.com/rh-maggarwa/amq-streams.git
+        fabric8.io/git-commit: f7fb61983edd24fcfd323f936246ab544f693564
+        fabric8.io/git-branch: main
+        fabric8.io/git-url: https://github.com/sainijit/kafka-producer.git
       labels:
         app: kafka-producer-ocp
         provider: fabric8
@@ -38,7 +38,7 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
-        image: kafka-producer-ocp:latest
+        image: redhat/kafka-producer-ocp:latest
         imagePullPolicy: IfNotPresent
         name: spring-boot
         ports:
