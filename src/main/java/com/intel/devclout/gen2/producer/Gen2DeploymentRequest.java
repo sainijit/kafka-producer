@@ -4,7 +4,6 @@ package com.intel.devclout.gen2.producer;
  * @author sainijit
  */
 public class Gen2DeploymentRequest {
-    public class OpenShiftSSORequest {
         private String userName;
         private String token;
         private Project project;
@@ -56,6 +55,4 @@ public class Gen2DeploymentRequest {
             return "OpenShiftSSORequest [userName=" + userName + ", token=" + token + ", project=" + project + ", userId="
                     + userId + "]";
         }
-
-    }
 }

@@ -48,18 +48,23 @@ public class KafkaProducerAPI {
         	System.out.println("key="+key+",value="+value);
             properties.put(key, value);
         });
+
         Gson gson = new Gson();
         String deploymentRquJson = gson.toJson(deploymentRequest);
         //properties.put("batch.size", 30000); // 16384=default value
 		//properties.put("linger.ms", 1);
 		//properties.put("buffer.memory", 33554432);
 		System.out.println("************ kafka Producer **********");
+        System.out.println("request received for deployment :"+deploymentRquJson.toString());
         KafkaProducer<String, String> kafkaProducer = new KafkaProducer<String, String>(properties);
         String response = null;
         try{
 
                 System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++  ");
-                kafkaProducer.send(new ProducerRecord<String, String>(headers.get("topic"),deploymentRquJson));
+                System.out.println("");
+                ProducerRecord<String,String>record = new ProducerRecord<String, String>(headers.get("topic"),deploymentRquJson,deploymentRquJson);
+                System.out.println(deploymentRequest.toString());
+                kafkaProducer.send(record);
                 System.out.println("___________________________________________________");
                 response = "Message put successfully to kafka queue";
             System.out.println("***************************"+response);
